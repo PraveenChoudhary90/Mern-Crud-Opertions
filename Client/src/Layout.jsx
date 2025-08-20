@@ -6,9 +6,7 @@ const Layout = ()=>{
     return(
         <>
         <TopNav/>
-        <main style={{margin:"20px"}}>
-           <Outlet/> 
-        </main>
+        <main style={{margin:"20px"}}><Outlet/></main>
         <Footer/>
         </>
     )
