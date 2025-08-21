@@ -6,6 +6,7 @@ import axios from "axios";
 const Insert =()=>{
 
       const[input,setInput] = useState('');
+      const[image, setImage] = useState("");
 
       const handelInput = (e)=>{
         const name = e.target.name;
@@ -15,12 +16,28 @@ const Insert =()=>{
 
       }
 
+      const handelImage = (e)=>{
+        setImage(e.target.files);
+        console.log(image);
+      }
+
       const handelSubmit =async(e)=>{
         e.preventDefault();
         const api = `${BASE_URL}/Student/InsertData`;
+        const fromData = new FormData();
+        for(let key in input){
+          fromData.append(input, key[input]);
+        }
+
+        for(let i = 0; i<image.length;i++){
+          fromData.append('image', image[i]);
+        }
+        
         try {
-            const response = await axios.post(api, input);
+
+            const response = await axios.post(api, fromData);
             console.log(response.data);
+            alert(response.data.msg);
         } catch (error) {
             console.log(error)
         }
@@ -55,6 +72,11 @@ const Insert =()=>{
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Student Contact Number</Form.Label>
         <Form.Control type="number" name='number' value={input.number} onChange={handelInput} />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Student Image Url</Form.Label>
+        <Form.Control type="file" multiple onChange={handelImage} />
       </Form.Group>
       <Button variant="primary" type="submit" onClick={handelSubmit}>
         Submit

@@ -4,7 +4,9 @@ const StuSchema = new mongoose.Schema({
     email:String,
     rollno:String,
     city:String,
-    number:Number
+    number:Number,
+    defaultImage:String,
+    image:[String]
 }) 
 
 

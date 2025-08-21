@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 const StuRoute = require("./Route/StuRoute");
+const path = require('path')
 
 
 app.use(cors());
@@ -15,6 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 mongoose.connect(process.env.CONNECTION_STRING).then(()=>{
     console.log("DB IS CONNECTED");
 })
+
+app.use('/static', express.static(path.join(__dirname, 'public')))
 
 app.use("/Student",StuRoute);
 const port = process.env.PORT;
