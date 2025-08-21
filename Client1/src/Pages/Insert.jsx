@@ -5,7 +5,7 @@ import BASE_URL from '../Config/Config';
 import axios from "axios";
 const Insert =()=>{
 
-      const[input,setInput] = useState('');
+      const[input,setInput] = useState("");
       const[image, setImage] = useState("");
 
       const handelInput = (e)=>{
@@ -26,7 +26,7 @@ const Insert =()=>{
         const api = `${BASE_URL}/Student/InsertData`;
         const fromData = new FormData();
         for(let key in input){
-          fromData.append(input, key[input]);
+          fromData.append(key, input[key]);
         }
 
         for(let i = 0; i<image.length;i++){
