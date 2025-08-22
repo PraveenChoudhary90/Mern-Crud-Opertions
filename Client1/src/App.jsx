@@ -5,6 +5,7 @@ import Layout from './Layout'
 import Home from './Pages/Home'
 import About from './Pages/About'
 import Insert from './Pages/Insert'
+import Display from './Pages/Display'
 
 function App() {
  
@@ -17,6 +18,7 @@ function App() {
       <Route path='home' element={<Home/>}/>
       <Route path='about' element={<About/>}/>
       <Route path='insert' element={<Insert/>}/>
+      <Route path='display' element={<Display/>}/>
       </Route>
     </Routes>
     </BrowserRouter>

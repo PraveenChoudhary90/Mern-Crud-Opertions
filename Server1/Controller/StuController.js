@@ -20,11 +20,17 @@ const InsertData = async(req,res)=>{
         console.log(error)
         
     }
-   
+}
 
+
+const DisplayData = async(req,res)=>{
+    const Data = await StudentModel.find();
+    console.log(Data);
+    res.send(Data);
 }
 
 
 module.exports = {
-    InsertData
+    InsertData,
+    DisplayData
 }

@@ -20,6 +20,7 @@ const upload = multer({
 }) // 'myFile' is the name attribute of the file input field
 
 route.post("/InsertData", upload.array("image",10) ,StuController.InsertData);
+route.get("/DisplayData", StuController.DisplayData);
 
 
 
