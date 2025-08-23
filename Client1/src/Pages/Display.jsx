@@ -68,6 +68,7 @@ const Display = ()=>{
 
 
   const handelUpdateSubmit = async(_id)=>{
+    console.log(_id);
     const api = `${BASE_URL}/Student/Updatefromdata`;
     try {
       const response = await axios.post(api, {_id:_id})

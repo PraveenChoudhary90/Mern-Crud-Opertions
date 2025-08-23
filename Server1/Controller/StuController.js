@@ -55,8 +55,14 @@ const UpdateData = async(req,res)=>{
 
 
  const handelUpdateSubmit  =async(req,res)=>{
-    console.log(req.body);
-    res.send("okkk");
+    const {_id} = req.body;
+    try {
+        const Data = await StudentModel.findByIdAndUpdate(_id, req.body);
+        console.log(Data)
+        res.status(200).send({msg:"Student details is update successfully"});
+    } catch (error) {
+        console.log(error)
+    }
  }
 
 
