@@ -9,15 +9,19 @@ const path = require('path')
 
 
 app.use(cors());
+
+
 // Parse incoming requests with JSON payloads
 app.use(bodyParser.json());
 // Parse incoming requests with urlencoded payloads
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
+
 mongoose.connect(process.env.CONNECTION_STRING).then(()=>{
     console.log("DB IS CONNECTED");
 })
 
-app.use('/static', express.static(path.join(__dirname, 'public')))
 
 app.use("/Student",StuRoute);
 const port = process.env.PORT;
