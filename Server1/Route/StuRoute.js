@@ -23,7 +23,7 @@ route.post("/InsertData", upload.array("image",10) ,StuController.InsertData);
 route.get("/DisplayData", StuController.DisplayData);
 route.post("/DeleteData", StuController.DeleteData);
 route.post("/UpdateData", StuController.UpdateData);
-route.post("/handelUpdateSubmit", StuController.handelUpdateSubmit);
+route.post("/Updatefromdata", StuController.Updatefromdata);
 
 
 

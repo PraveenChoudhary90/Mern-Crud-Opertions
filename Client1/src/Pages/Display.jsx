@@ -67,11 +67,11 @@ const Display = ()=>{
   }
 
 
-  const handelUpdateSubmit = async(_id)=>{
-    console.log(_id);
+  const handelUpdateSubmit = async(e)=>{
+        e.preventDefault();
     const api = `${BASE_URL}/Student/Updatefromdata`;
     try {
-      const response = await axios.post(api, {_id:_id})
+      const response = await axios.post(api, input)
       alert(response.data.msg);
       setShow(false);
     } catch (error) {

@@ -54,7 +54,7 @@ const UpdateData = async(req,res)=>{
 }
 
 
- const handelUpdateSubmit  =async(req,res)=>{
+ const Updatefromdata  =async(req,res)=>{
     const {_id} = req.body;
     try {
         const Data = await StudentModel.findByIdAndUpdate(_id, req.body);
@@ -71,5 +71,5 @@ module.exports = {
     DisplayData,
     DeleteData,
     UpdateData,
-    handelUpdateSubmit
+    Updatefromdata
 }
