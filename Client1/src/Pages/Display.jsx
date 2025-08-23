@@ -9,6 +9,7 @@ import Table from 'react-bootstrap/Table';
 const Display = ()=>{
 
     const [mydata, setMydata]  =useState([]);
+    const [updata, setUpdata] = useState([]);
 
     const LoadData = async()=>{
         const api  =`${BASE_URL}/Student/DisplayData`;
@@ -40,6 +41,7 @@ const Display = ()=>{
     try {
       const response = await axios.post(api, {_id:_id});
       console.log(response.data);
+      setUpdata(response.data);
     } catch (error) {
       console.log(error);
     }
