@@ -52,9 +52,18 @@ const UpdateData = async(req,res)=>{
         console.log(error)
     }
 }
+
+
+ const handelUpdateSubmit  =async(req,res)=>{
+    console.log(req.body);
+    res.send("okkk");
+ }
+
+
 module.exports = {
     InsertData,
     DisplayData,
     DeleteData,
-    UpdateData
+    UpdateData,
+    handelUpdateSubmit
 }
