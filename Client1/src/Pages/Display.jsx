@@ -22,6 +22,20 @@ const Display = ()=>{
       LoadData();
     },[])
 
+  const DeleteStudent = async(id)=>{
+    const api = `${BASE_URL}/Student/DeleteData`;
+    try {
+      const response = await axios.post(api, {id:id});
+      window.alert(response.data.msg);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+
+
+
 let cr = 0;
    const ans = mydata.map((key)=>{
     cr++
@@ -37,6 +51,8 @@ let cr = 0;
             <td>{key.email}</td>
             <td>{key.city}</td>
             <td>{key.number}</td>
+            <td onClick={()=>{DeleteStudent(key._id)}}>delete</td>
+            <td>update</td>
         </tr>
         </>
     )
@@ -56,6 +72,8 @@ let cr = 0;
           <th>Email</th>
           <th>City</th>
           <th>Number</th>
+          <th>Delete</th>
+          <th>Update</th>
         </tr>
       </thead>
       <tbody>
