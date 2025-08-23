@@ -33,6 +33,18 @@ const Display = ()=>{
   }
 
 
+  const UpdateData = async(_id)=>
+    {
+      console.log(_id);
+    const api = `${BASE_URL}/Student/UpdateData`;
+    try {
+      const response = await axios.post(api, {_id:_id});
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 
 
 
@@ -51,8 +63,8 @@ let cr = 0;
             <td>{key.email}</td>
             <td>{key.city}</td>
             <td>{key.number}</td>
-            <td onClick={()=>{DeleteStudent(key._id)}}>delete</td>
-            <td>update</td>
+            <td onClick={()=>{DeleteStudent(key._id)}}>Delete</td>
+            <td onClick={()=>{UpdateData(key._id)}} >Update</td>
         </tr>
         </>
     )
